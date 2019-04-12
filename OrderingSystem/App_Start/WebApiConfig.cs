@@ -36,7 +36,8 @@ namespace OrderingSystem
 
             builder.RegisterType<OrderRepository>().As<IRepository<Order>>().SingleInstance();
             builder.RegisterType<OrderRepository>().As<IGetOrderRepository>().SingleInstance();
-            
+            builder.RegisterType<OrderRepository>().As<ICancelOrderRepository>().SingleInstance();
+            builder.RegisterType<OrderRepository>().As<IUpdateOrderRepository<OrderPatchRequest>>().SingleInstance();
 
             var container = builder.Build();
 
